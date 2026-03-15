@@ -5,35 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chace 'N' Vapes | Baker, MT Premium Smoke & Glass</title>
     <style>
+        /* CSS Variables for a Premium, Rugged Aesthetic */
         :root {
-            --primary: #0f0f0f;
-            --accent: #d4af37; /* Gold for a premium, heritage feel */
-            --text: #ffffff;
-            --bg-overlay: rgba(0, 0, 0, 0.65);
+            --obsidian: #0a0a0b;
+            --gold: #c5a059;
+            --slate: #e2e8f0;
+            --overlay: rgba(10, 10, 11, 0.7);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--primary);
-            color: var(--text);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--obsidian);
+            color: var(--slate);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* Parallax Scenery Engine */
-        .scenery-layer {
+        /* Parallax & Scenery Engine */
+        .section {
+            position: relative;
             height: 100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
         }
 
         .overlay {
@@ -42,46 +49,216 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg-overlay);
+            background: var(--overlay);
             z-index: 1;
         }
 
         .content {
+            position: relative;
             z-index: 2;
-            padding: 20px;
-            max-width: 900px;
+            padding: 2rem;
+            max-width: 1000px;
+            width: 100%;
         }
 
-        h1 { font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 6px; margin-bottom: 10px; text-transform: uppercase; font-weight: 900; }
-        h2 { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
-        p { font-size: 1.2rem; line-height: 1.8; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        /* Section Specific Backgrounds (Montana Scenery) */
+        .hero-bg { background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80'); }
+        .glass-bg { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80'); }
+        .vape-bg { background-image: url('https://images.unsplash.com/photo-1493246507139-91e8bef99c02?auto=format&fit=crop&w=1920&q=80'); }
+        .botanical-bg { background-image: url('https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=1920&q=80'); }
 
-        /* Scenery Transitions: Representing the Baker/Montana Landscape */
-        .hero { background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80'); } /* Badlands/Plains */
-        .glass { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80'); } /* High Peaks */
-        .vape { background-image: url('https://images.unsplash.com/photo-1493246507139-91e8bef99c02?auto=format&fit=crop&w=1920&q=80'); } /* Twilight Horizon */
-        .kratom { background-image: url('https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=1920&q=80'); } /* Forest Moss */
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 10vw, 5.5rem);
+            text-transform: uppercase;
+            letter-spacing: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            line-height: 0.9;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p.lead {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
 
         /* Product Grid */
-        .grid {
+        .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .product-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 2rem;
             border-radius: 4px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border 0.3s ease;
+            backdrop-filter: blur(8px);
+            transition: var(--transition);
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            border: 1px solid var(--accent);
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.07);
         }
 
-        .product-card h3 { color: var(--accent); text-transform: uppercase
+        .card h3 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Interaction Elements */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: var(--obsidian);
+        }
+
+        /* Footer */
+        footer {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: #050505;
+        }
+
+        .legal {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .section { background-attachment: scroll; } /* Better for mobile performance */
+            h1 { letter-spacing: 0.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION: THE IDENTITY -->
+    <section class="section hero-bg">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Chace 'N' Vapes</h1>
+            <p class="lead">Built in Baker. Refined by Montana. We provide the hardware and the heat for the Big Sky enthusiast.</p>
+            <a href="#glass" class="btn">Explore Inventory</a>
+        </div>
+    </section>
+
+    <!-- GLASS SECTION: ARTISAN TOOLS -->
+    <section id="glass" class="section glass-bg">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Hand-Selected Glass</h2>
+            <p class="lead">From scientific precision to heady local blowers. We curate pieces that stand the test of time.</p>
+            <div class="product-grid">
+                <div class="card">
+                    <h3>Scientific Series</h3>
+                    <p>Heavy-duty borosilicate for daily utility.</p>
+                </div>
+                <div class="card">
+                    <h3>Heady Collection</h3>
+                    <p>Local artist collaborations and one-off rigs.</p>
+                </div>
+                <div class="card">
+                    <h3>Custom Nails</h3>
+                    <p>Quartz and accessories built for heat retention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VAPE SECTION: THE TECH -->
+    <section id="vape" class="section vape-bg">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Vapor Systems</h2>
+            <p class="lead">Precision-engineered hardware. Whether you're chasing clouds or seeking stealth, we bridge the gap between power and portability.</p>
+            <div class="product-grid">
+                <div class="card">
+                    <h3>Next-Gen Mods</h3>
+                    <p>Adjustable wattage and advanced chipsets.</p>
+                </div>
+                <div class="card">
+                    <h3>Pod Tech</h3>
+                    <p>Compact delivery systems for those on the move.</p>
+                </div>
+                <div class="card">
+                    <h3>Premium Liquids</h3>
+                    <p>Flavor profiles refined for the modern palette.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTANICAL SECTION: NATURAL FLOW -->
+    <section id="botanicals" class="section botanical-bg">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Specialty Goods</h2>
+            <p class="lead">Premium Kratom and specialty botanicals. Sourced for purity, measured for impact. Natural focus for the Montana lifestyle.</p>
+            <div class="product-grid">
+                <div class="card">
+                    <h3>Ethical Kratom</h3>
+                    <p>Lab-tested, pure-source powder and caps.</p>
+                </div>
+                <div class="card">
+                    <h3>Botanical Extracts</h3>
+                    <p>Concentrated solutions for deep focus.</p>
+                </div>
+                <div class="card">
+                    <h3>Holistic Gear</h3>
+                    <p>Tools for the refined herbal enthusiast.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER: THE FOUNDATION -->
+    <footer>
+        <div class="content">
+            <h2 style="color: white;">Baker's Finest</h2>
+            <p>101 Main St, Baker, MT 59313</p>
+            <p style="margin-top: 10px; color: var(--gold);">Professionalism • Precision • Perspective</p>
+            
+            <div class="legal">
+                <p>&copy; 2026 Chace 'N' Vapes. All Rights Reserved.</p>
+                <p>NOTICE: Products are for adult use only. Must be 21+ to purchase. We strictly adhere to all Montana state and federal regulations regarding tobacco, vapor, and botanical products.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
