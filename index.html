@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const currentProgress = window.scrollY / totalScroll;
+      const currentProgress = window.scrollY / (totalScroll || 1);
       setScrollProgress(currentProgress);
     };
     window.addEventListener('scroll', handleScroll);
@@ -28,7 +28,6 @@ const App = () => {
     }
   };
 
-  // Sections based on the Infinite Sum Logic (Purpose + Connection / Lifestyle)
   const sections = [
     {
       id: 'presence',
@@ -77,7 +76,7 @@ const App = () => {
           >
             {isAudioPlaying ? <Volume2 size={18} /> : <VolumeX size={18} />}
           </button>
-          <button onClick={() => setIsMenuOpen(true)} className="p-1">
+          <button onClick={() => setIsMenuOpen(true)} className="p-1 hover:text-stone-400 transition-colors">
             <Menu size={24} strokeWidth={1} />
           </button>
         </div>
@@ -85,7 +84,7 @@ const App = () => {
 
       {/* Fullscreen Overlay Menu */}
       <div className={`fixed inset-0 z-[60] bg-stone-950 transition-transform duration-1000 ease-in-out ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-        <button onClick={() => setIsMenuOpen(false)} className="absolute top-10 right-8 p-4">
+        <button onClick={() => setIsMenuOpen(false)} className="absolute top-10 right-8 p-4 hover:text-stone-400 transition-colors">
           <X size={32} strokeWidth={1} />
         </button>
         <div className="h-full flex flex-col justify-center items-center space-y-12">
@@ -93,16 +92,16 @@ const App = () => {
             <a 
               key={idx} 
               href="#" 
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => { e.preventDefault(); setIsMenuOpen(false); }}
               className="text-4xl md:text-6xl font-extralight tracking-tighter hover:italic transition-all"
             >
               {item}
             </a>
           ))}
           <div className="pt-12 flex space-x-6 text-stone-500 text-sm tracking-widest">
-            <Instagram size={20} className="hover:text-stone-100 cursor-pointer" />
-            <Mail size={20} className="hover:text-stone-100 cursor-pointer" />
-            <MapPin size={20} className="hover:text-stone-100 cursor-pointer" />
+            <Instagram size={20} className="hover:text-stone-100 cursor-pointer transition-colors" />
+            <Mail size={20} className="hover:text-stone-100 cursor-pointer transition-colors" />
+            <MapPin size={20} className="hover:text-stone-100 cursor-pointer transition-colors" />
           </div>
         </div>
       </div>
@@ -121,19 +120,22 @@ const App = () => {
           <img 
             src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=2000" 
             alt="Montana Wilderness"
-            className="w-full h-full object-cover opacity-50 scale-105"
-            style={{ transform: `scale(${1 + scrollProgress * 0.1}) translateY(${scrollProgress * 50}px)` }}
+            className="w-full h-full object-cover opacity-40 scale-105"
+            style={{ 
+              transform: `scale(${1 + scrollProgress * 0.1}) translateY(${scrollProgress * 50}px)`,
+              transition: 'transform 0.1s linear'
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0c10]/40 to-[#0a0c10]"></div>
         </div>
 
         <div className="relative z-10 space-y-8 max-w-5xl">
-          <span className="block text-xs tracking-[0.8em] uppercase text-stone-400 animate-fade-in">Established in the Big Sky</span>
-          <h1 className="text-6xl md:text-[10rem] font-extralight tracking-tighter leading-none">
+          <span className="block text-xs tracking-[0.8em] uppercase text-stone-400 opacity-0 animate-[fade-in_1.5s_ease-out_forwards]">Established in the Big Sky</span>
+          <h1 className="text-6xl md:text-[10rem] font-extralight tracking-tighter leading-none opacity-0 animate-[fade-in_2s_ease-out_0.5s_forwards]">
             ELEVATED <br /> <span className="italic font-serif opacity-80">COMPOSE</span>
           </h1>
-          <div className="w-16 h-[1px] bg-stone-100 mx-auto opacity-50"></div>
-          <p className="text-lg md:text-xl font-light text-stone-400 max-w-xl mx-auto tracking-wide leading-relaxed">
+          <div className="w-16 h-[1px] bg-stone-100 mx-auto opacity-0 animate-[fade-in_2.5s_ease-out_1s_forwards]"></div>
+          <p className="text-lg md:text-xl font-light text-stone-400 max-w-xl mx-auto tracking-wide leading-relaxed opacity-0 animate-[fade-in_3s_ease-out_1.5s_forwards]">
             Finding clarity through the mist. A curated approach to the modern lifestyle, grounded in the majesty of Montana.
           </p>
         </div>
@@ -158,16 +160,16 @@ const App = () => {
                 </p>
                 <button className="group flex items-center space-x-4 pt-4">
                   <span className="text-sm tracking-widest uppercase group-hover:mr-4 transition-all duration-500">Explore Further</span>
-                  <Wind size={20} className="text-stone-500" />
+                  <Wind size={20} className="text-stone-500 group-hover:rotate-180 transition-transform duration-700" />
                 </button>
               </div>
               
               <div className={`${idx % 2 === 0 ? 'md:order-2' : 'md:order-1'} relative`}>
-                <div className="aspect-[4/5] overflow-hidden rounded-sm grayscale-[0.2] hover:grayscale-0 transition-all duration-1000 shadow-2xl">
+                <div className="aspect-[4/5] overflow-hidden rounded-sm grayscale-[0.2] hover:grayscale-0 transition-all duration-[2000ms] shadow-2xl">
                   <img 
                     src={section.image} 
                     alt={section.title} 
-                    className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-[3000ms]" 
+                    className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-[4000ms]" 
                   />
                 </div>
                 {/* Invisible Geometry Marker (The Phi Spiral concept) */}
@@ -179,7 +181,6 @@ const App = () => {
 
         {/* The Action Statement (Invisible Coaxing) */}
         <section className="py-60 px-8 text-center bg-stone-100 text-stone-900 overflow-hidden relative">
-           {/* Abstract water-mark of the Montana landscape */}
            <div className="absolute inset-0 opacity-[0.03] flex items-center justify-center overflow-hidden">
              <h4 className="text-[40vw] font-black pointer-events-none uppercase">Impact</h4>
            </div>
@@ -236,7 +237,6 @@ const App = () => {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in { animation: fade-in 1.5s ease-out forwards; }
         .animate-bounce {
           animation: bounce 3s infinite;
         }
