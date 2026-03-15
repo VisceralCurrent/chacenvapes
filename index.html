@@ -19,7 +19,7 @@ import {
 
 /**
  * BRAND LOGIC
- * The math is the foundation; the hospitality is the interface.
+ * Mathematically derived proportions for visual hospitality.
  */
 const BRAND = {
   name: "Chace N Vapes",
@@ -71,7 +71,6 @@ const App = () => {
   if (!isVerified) {
     return (
       <div className="fixed inset-0 z-[100] bg-zinc-950 flex items-center justify-center p-6 font-sans overflow-hidden">
-        {/* Verification Background */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2070" 
@@ -80,18 +79,18 @@ const App = () => {
           />
         </div>
         
-        <div className="max-w-xl w-full p-12 rounded-[3.5rem] bg-zinc-900/60 border border-zinc-800/50 backdrop-blur-3xl relative z-10 text-center shadow-2xl">
-          <div className="w-16 h-16 rounded-3xl bg-indigo-500/20 flex items-center justify-center mx-auto mb-10 border border-indigo-500/30">
+        <div className="max-w-xl w-full p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] bg-zinc-900/60 border border-zinc-800/50 backdrop-blur-3xl relative z-10 text-center shadow-2xl">
+          <div className="w-16 h-16 rounded-3xl bg-indigo-500/20 flex items-center justify-center mx-auto mb-8 border border-indigo-500/30">
             <Wind className="w-8 h-8 text-indigo-400" />
           </div>
-          <h1 className="text-4xl font-black mb-4 tracking-tighter uppercase text-white">Verification</h1>
-          <p className="text-zinc-400 mb-10 leading-relaxed uppercase text-[10px] tracking-[0.4em] font-bold">
+          <h1 className="text-3xl md:text-4xl font-black mb-4 tracking-tighter uppercase text-white">Verification</h1>
+          <p className="text-zinc-400 mb-8 leading-relaxed uppercase text-[10px] tracking-[0.4em] font-bold">
             Montana Compliance / 21+ Required
           </p>
           <div className="space-y-4">
             <button 
               onClick={() => setIsVerified(true)}
-              className="w-full py-6 bg-indigo-500 text-zinc-950 font-black rounded-3xl transition-all hover:bg-indigo-400 active:scale-95 text-xs tracking-[0.3em] uppercase shadow-lg shadow-indigo-500/20"
+              className="w-full py-5 bg-indigo-500 text-zinc-950 font-black rounded-2xl transition-all hover:bg-indigo-400 active:scale-95 text-xs tracking-[0.3em] uppercase shadow-lg shadow-indigo-500/20"
             >
               Enter The Flow
             </button>
@@ -99,17 +98,27 @@ const App = () => {
               Exit Protocol
             </button>
           </div>
-          <div className="mt-12 text-[9px] font-mono text-zinc-700 tracking-[0.5em]">{BRAND.id}</div>
+          <div className="mt-10 text-[9px] font-mono text-zinc-700 tracking-[0.5em]">{BRAND.id}</div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-indigo-500/30 antialiased">
       
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-[70] bg-zinc-950 flex flex-col items-center justify-center gap-8 text-2xl font-black uppercase tracking-tighter">
+          <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 p-2 text-zinc-400"><X size={32} /></button>
+          {['Hardware', 'Botanicals', 'Presence', 'Support'].map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="hover:text-indigo-400 transition-colors">{item}</a>
+          ))}
+        </div>
+      )}
+
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 px-6 lg:px-12 flex justify-between items-center ${scrollY > 50 ? 'bg-zinc-950/90 backdrop-blur-2xl border-b border-zinc-800/40 py-4' : 'bg-transparent py-8'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 px-6 lg:px-12 flex justify-between items-center ${scrollY > 50 ? 'bg-zinc-950/90 backdrop-blur-2xl border-b border-zinc-800/40 py-4 shadow-2xl' : 'bg-transparent py-8'}`}>
         <div className="flex items-center gap-4 group cursor-pointer">
           <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center shadow-2xl shadow-indigo-500/20 transition-transform duration-500 group-hover:rotate-12">
             <Wind className="w-6 h-6 text-zinc-950" />
@@ -133,15 +142,14 @@ const App = () => {
           <button className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-zinc-900 border border-zinc-800 rounded-full text-[10px] font-bold uppercase tracking-widest hover:border-indigo-500 transition-all">
             <NavIcon className="w-3 h-3 text-indigo-400" /> Visit Us
           </button>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 text-zinc-400">
-            {isMenuOpen ? <X /> : <Menu />}
+          <button onClick={() => setIsMenuOpen(true)} className="lg:hidden p-2 text-zinc-400 hover:text-white transition-colors">
+            <Menu size={24} />
           </button>
         </div>
       </nav>
 
-      {/* Hero Section: Montana Hospitality & Scenery */}
-      <section className="relative pt-60 pb-40 px-6 lg:px-24 min-h-screen flex items-center overflow-hidden">
-        {/* Dynamic Background Image */}
+      {/* Hero Section */}
+      <section className="relative pt-48 pb-32 md:pt-60 md:pb-40 px-6 lg:px-24 min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1498429089284-41f8cf3ffd39?auto=format&fit=crop&q=80&w=2070" 
@@ -153,21 +161,21 @@ const App = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="flex items-center gap-4 mb-8">
-            <div className="h-px w-16 bg-indigo-500" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.5em] text-indigo-400">Heart of Chace</span>
+            <div className="h-px w-12 md:w-16 bg-indigo-500" />
+            <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.5em] text-indigo-400">Heart of Chace</span>
           </div>
 
-          <h2 className="text-[clamp(3.5rem,12vw,10rem)] leading-[0.85] font-black tracking-tighter mb-12 uppercase">
+          <h2 className="text-[clamp(2.5rem,10vw,10rem)] leading-[0.85] font-black tracking-tighter mb-12 uppercase">
             Big Sky <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-600 italic font-light lowercase">precision.</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-xl font-light">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+            <p className="text-lg md:text-2xl text-zinc-400 leading-relaxed max-w-xl font-light">
               Experience the convergence of mathematical accuracy and pure Montana hospitality. We provide the tools for those who choose their own frequency.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 md:justify-end mt-8">
-              <button className="px-12 py-6 bg-indigo-500 hover:bg-indigo-400 text-zinc-950 font-black rounded-full flex items-center justify-center gap-4 transition-all active:scale-95 text-[11px] uppercase tracking-widest shadow-2xl shadow-indigo-500/20">
+            <div className="flex flex-col sm:flex-row gap-6 md:justify-end mt-4">
+              <button className="px-10 py-5 md:px-12 md:py-6 bg-indigo-500 hover:bg-indigo-400 text-zinc-950 font-black rounded-full flex items-center justify-center gap-4 transition-all active:scale-95 text-[11px] uppercase tracking-widest shadow-2xl shadow-indigo-500/20">
                 Explore The Collection <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -175,11 +183,11 @@ const App = () => {
         </div>
       </section>
 
-      {/* The Heart of Hospitality Section */}
-      <section id="presence" className="py-32 px-6 lg:px-24 bg-zinc-900/10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="relative">
-            <div className="aspect-[PHI] rounded-[3rem] overflow-hidden border border-zinc-800 shadow-2xl group">
+      {/* Hospitality Section */}
+      <section id="presence" className="py-24 md:py-32 px-6 lg:px-24 bg-zinc-900/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+          <div className="relative order-2 lg:order-1">
+            <div className="aspect-[1.618] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-zinc-800 shadow-2xl group">
               <img 
                 src="https://images.unsplash.com/photo-1533512900355-601938927429?auto=format&fit=crop&q=80&w=2070" 
                 alt="Montana Hospitality"
@@ -187,23 +195,23 @@ const App = () => {
               />
               <div className="absolute inset-0 bg-indigo-950/20 mix-blend-overlay" />
             </div>
-            <div className="absolute -bottom-10 -right-10 p-10 bg-indigo-500 rounded-[2.5rem] shadow-2xl hidden md:block">
-               <Heart className="w-10 h-10 text-zinc-950" fill="currentColor" />
+            <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 p-6 md:p-10 bg-indigo-500 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl">
+               <Heart className="w-8 h-8 md:w-10 md:h-10 text-zinc-950" fill="currentColor" />
             </div>
           </div>
           
-          <div className="space-y-10">
-            <h3 className="text-5xl md:text-6xl font-black tracking-tighter uppercase leading-none">Rooted in <br/><span className="text-indigo-400">Integrity.</span></h3>
-            <p className="text-zinc-500 text-lg leading-loose">
+          <div className="space-y-8 md:space-y-10 order-1 lg:order-2">
+            <h3 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-none">Rooted in <br/><span className="text-indigo-400">Integrity.</span></h3>
+            <p className="text-zinc-500 text-base md:text-lg leading-loose">
               Our presence in Montana isn't just a business—it's a node of hospitality. We believe that true success is found in the connection between a reliable product and a person's trust. Every detail is mathematically balanced to serve you.
             </p>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-8 pt-4">
                <div className="space-y-2">
-                  <div className="text-3xl font-black text-white">100%</div>
+                  <div className="text-2xl md:text-3xl font-black text-white">100%</div>
                   <div className="text-[10px] uppercase font-bold text-zinc-600 tracking-widest">MT Verified</div>
                </div>
                <div className="space-y-2">
-                  <div className="text-3xl font-black text-white">24/7</div>
+                  <div className="text-2xl md:text-3xl font-black text-white">24/7</div>
                   <div className="text-[10px] uppercase font-bold text-zinc-600 tracking-widest">Support Flow</div>
                </div>
             </div>
@@ -211,48 +219,51 @@ const App = () => {
         </div>
       </section>
 
-      {/* Metrics Section: Using PHI for spacing */}
-      <section className="py-40 px-6 lg:px-24 border-y border-zinc-900">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-20">
+      {/* Metrics Section */}
+      <section className="py-24 md:py-40 px-6 lg:px-24 border-y border-zinc-900">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
           {[
             { label: "Phase Shift Optimization", icon: Activity, desc: "Devices that synchronize with your usage rhythm through bio-feedback technology." },
             { label: "Infinite Impact", icon: Maximize2, desc: "Our supply chain scales to infinity, ensuring reliability when you need it most." },
             { label: "State Standard", icon: ShieldCheck, desc: "Rigorous Montana regulation adherence. We operate with absolute transparency." }
           ].map((item, i) => (
             <div key={i} className="group flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-[2rem] bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-8 group-hover:bg-indigo-500 group-hover:border-indigo-500 transition-all duration-500">
+              <div className="w-16 h-16 rounded-[2rem] bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-8 group-hover:bg-indigo-500 group-hover:border-indigo-400 transition-all duration-500">
                 <item.icon className="w-6 h-6 text-indigo-400 group-hover:text-zinc-950 transition-colors" />
               </div>
               <h3 className="text-xl font-bold uppercase tracking-widest mb-4 group-hover:text-indigo-400 transition-colors">{item.label}</h3>
-              <p className="text-zinc-500 leading-loose text-sm">{item.desc}</p>
+              <p className="text-zinc-500 leading-loose text-sm max-w-xs">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Product Display */}
-      <section id="hardware" className="py-40 px-6 lg:px-24 relative overflow-hidden">
+      {/* Products Section */}
+      <section id="hardware" className="py-24 md:py-40 px-6 lg:px-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
-            <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
-              <h2 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase leading-[0.8]">The <br/><span className="text-indigo-500">Collection.</span></h2>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24 gap-10 text-center md:text-left">
+            <div className="max-w-2xl">
+              <h2 className="text-5xl md:text-8xl font-black tracking-tighter mb-6 md:mb-8 uppercase leading-[0.8]">The <br/><span className="text-indigo-500">Collection.</span></h2>
               <p className="text-zinc-500 text-lg">Engineered hardware and distilled botanicals for the modern seeker.</p>
+            </div>
+            <div className="hidden md:flex items-center gap-4 text-xs font-bold uppercase tracking-[0.3em] text-indigo-400">
+              EXPLORE CODEX <ChevronRight className="w-4 h-4" />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {collection.map((p) => (
-              <div key={p.id} className="group p-8 rounded-[3.5rem] bg-zinc-900/20 border border-zinc-800/40 hover:border-indigo-500/30 hover:bg-zinc-900/40 transition-all duration-700 flex flex-col">
-                <div className="aspect-square mb-10 rounded-[3rem] bg-zinc-950 flex items-center justify-center relative overflow-hidden group-hover:shadow-2xl group-hover:shadow-indigo-500/5 transition-all">
+              <div key={p.id} className="group p-8 rounded-[3rem] md:rounded-[3.5rem] bg-zinc-900/20 border border-zinc-800/40 hover:border-indigo-500/30 hover:bg-zinc-900/40 transition-all duration-700 flex flex-col">
+                <div className="aspect-square mb-10 rounded-[2.5rem] md:rounded-[3rem] bg-zinc-950 flex items-center justify-center relative overflow-hidden group-hover:shadow-2xl group-hover:shadow-indigo-500/5 transition-all">
                   <div className="absolute top-6 left-6 px-3 py-1 bg-zinc-900/80 backdrop-blur rounded-full text-[8px] font-bold uppercase tracking-[0.2em] text-zinc-500">{p.category}</div>
-                  <div className="text-zinc-800 group-hover:text-indigo-500 transition-all duration-700 scale-110">{p.icon}</div>
+                  <div className="text-zinc-800 group-hover:text-indigo-400 transition-all duration-700 scale-110">{p.icon}</div>
                 </div>
                 <div className="flex justify-between items-end mb-4">
                   <h4 className="text-2xl font-bold tracking-tighter group-hover:text-indigo-400 transition-colors">{p.name}</h4>
-                  <span className="text-lg font-black">{p.price}</span>
+                  <span className="text-xl font-black">{p.price}</span>
                 </div>
                 <p className="text-sm text-zinc-500 leading-relaxed mb-10 flex-grow">{p.desc}</p>
-                <button className="w-full py-5 bg-zinc-800/60 group-hover:bg-indigo-500 group-hover:text-zinc-950 font-black rounded-3xl transition-all duration-500 text-[10px] uppercase tracking-[0.3em]">
+                <button className="w-full py-5 bg-zinc-800/60 group-hover:bg-indigo-500 group-hover:text-zinc-950 font-black rounded-3xl transition-all duration-500 text-[10px] uppercase tracking-[0.3em] border border-transparent hover:border-indigo-400">
                   View Detail
                 </button>
               </div>
@@ -261,15 +272,14 @@ const App = () => {
         </div>
       </section>
 
-      {/* Footer: Professional & Mathematically Precise */}
-      <footer className="pt-40 pb-16 px-6 lg:px-24 border-t border-zinc-900 bg-zinc-950 relative overflow-hidden">
-        {/* Subtle Scenery Footer Backdrop */}
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] pointer-events-none">
+      {/* Footer */}
+      <footer className="pt-24 md:pt-40 pb-16 px-6 lg:px-24 border-t border-zinc-900 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full opacity-[0.03] pointer-events-none">
            <img src="https://images.unsplash.com/photo-1544239649-4348259c01fb?auto=format&fit=crop&q=80&w=2070" alt="Montana Silhouette" className="w-full h-full object-cover" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-20 mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 md:gap-20 mb-24 md:mb-32">
             <div className="lg:col-span-2 space-y-10">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center">
@@ -282,41 +292,41 @@ const App = () => {
               </p>
               <div className="flex gap-4">
                  {[Activity, Clock, MapPin].map((Icon, idx) => (
-                    <div key={idx} className="w-14 h-14 rounded-3xl border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 hover:border-indigo-500/40 transition-all cursor-pointer group">
-                      <Icon className="w-5 h-5 text-zinc-600 group-hover:text-indigo-400" />
+                    <div key={idx} className="w-12 h-12 md:w-14 md:h-14 rounded-2xl md:rounded-3xl border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 hover:border-indigo-500/40 transition-all cursor-pointer group">
+                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-zinc-600 group-hover:text-indigo-400" />
                     </div>
                  ))}
               </div>
             </div>
             
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <h5 className="text-[11px] font-bold uppercase tracking-[0.4em] text-indigo-400">Resources</h5>
-              <ul className="space-y-5 text-zinc-500 text-[10px] font-bold uppercase tracking-widest">
-                <li><a href="#" className="hover:text-indigo-400 transition-colors">Digital Portal</a></li>
-                <li><a href="#" className="hover:text-indigo-400 transition-colors">Location Sync</a></li>
-                <li><a href="#" className="hover:text-indigo-400 transition-colors">Hardware Support</a></li>
+              <ul className="space-y-4 md:space-y-5 text-zinc-500 text-[10px] font-bold uppercase tracking-widest">
+                <li><a href="#" className="hover:text-white transition-colors">Digital Portal</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Location Sync</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Hardware Support</a></li>
               </ul>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <h5 className="text-[11px] font-bold uppercase tracking-[0.4em] text-indigo-400">Presence</h5>
-              <ul className="space-y-5 text-zinc-600 text-xs tracking-widest leading-relaxed">
+              <ul className="space-y-4 md:space-y-5 text-zinc-600 text-[10px] md:text-xs tracking-widest leading-relaxed font-bold uppercase">
                 <li className="flex items-center gap-4"><MapPin className="w-4 h-4 text-indigo-400" /> {BRAND.location}</li>
-                <li className="flex items-center gap-4"><Globe className="w-4 h-4 text-indigo-400" /> State Lic: #2026-CH</li>
-                <li className="flex items-center gap-4 text-indigo-400/60 uppercase font-bold text-[9px]">MT Compliance Verified</li>
+                <li className="flex items-center gap-4 text-indigo-400/60 font-black">MT Compliance Verified</li>
+                <li className="text-[8px] text-zinc-800 font-mono tracking-widest leading-none">ID: {BRAND.id}</li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-16 border-t border-zinc-900/50 flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="pt-12 border-t border-zinc-900/50 flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
             <div className="text-[10px] text-zinc-800 font-mono tracking-[0.6em] uppercase">
               © 2026 {BRAND.name.toUpperCase()} // CHACE_ROOT
             </div>
-            <div className="flex gap-12 text-[10px] text-zinc-700 font-bold uppercase tracking-[0.3em]">
-              <a href="#" className="hover:text-white transition-colors underline underline-offset-8 decoration-zinc-800">Privacy_Protocol</a>
-              <a href="#" className="hover:text-white transition-colors underline underline-offset-8 decoration-zinc-800">Terms_of_Flow</a>
+            <div className="flex gap-8 md:gap-12 text-[10px] text-zinc-700 font-bold uppercase tracking-[0.3em]">
+              <a href="#" className="hover:text-white transition-colors">Privacy_Protocol</a>
+              <a href="#" className="hover:text-white transition-colors">Terms_of_Flow</a>
             </div>
-            <div className="text-[10px] text-zinc-800 font-mono tracking-[0.4em]">
+            <div className="hidden lg:block text-[10px] text-zinc-800 font-mono tracking-[0.4em]">
               {BRAND.id}
             </div>
           </div>
