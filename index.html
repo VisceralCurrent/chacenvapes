@@ -1,217 +1,201 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chace N Vapes | The Visceral Current</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --mt-grit: #1a1a1a;
+            --mt-cloud: #f4f4f4;
+            --mt-gold: #c5a059;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--mt-grit);
+            color: var(--mt-cloud);
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .glass {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 1)),
+                        url('https://images.unsplash.com/photo-1506543026363-22f6723b7294?auto=format&fit=crop&q=80&w=2000'); /* Placeholder for MT landscape */
+            background-size: cover;
+            background-position: center;
+        }
+        .equation-box {
+            font-family: serif;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+        .equation-box:hover { opacity: 1; }
+        
+        /* Smooth Fade In */
+        .fade-in {
+            animation: fadeIn 1.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en" class="scroll-smooth"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Chace N Vapes | The Visceral Current&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&amp;family=Playfair+Display:ital,wght@1,400;1,700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/lucide@latest"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--mt-grit: #1a1a1a;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--mt-cloud: #f4f4f4;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--mt-gold: #c5a059;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--mt-grit);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--mt-cloud);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.font-serif { font-family: 'Playfair Display', serif; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.glass {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(26, 26, 26, 0.8);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(12px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero-gradient {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(to bottom, rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 1)),</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>url('https://images.unsplash.com/photo-1506543026363-22f6723b7294?auto=format&amp;fit=crop&amp;q=80&amp;w=2000'); /* Placeholder for MT landscape */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.equation-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.1em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.5s ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.equation-box:hover { opacity: 1; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Smooth Fade In */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.fade-in {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeIn 1.5s ease-out;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(20px); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="overflow-x-hidden"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Age Verification Overlay (Universal Logic) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="age-gate" class="fixed inset-0 z-[100] flex items-center justify-center glass px-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-md w-full p-8 text-center border border-white/20 bg-black/60 rounded-xl"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-serif italic mb-4"&gt;Are you of age?&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm opacity-70 mb-8"&gt;Accessing the Current requires maturity and self-respect. You must be 21+ to enter.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex gap-4 justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="closeGate()" class="px-8 py-3 bg-white text-black font-bold hover:bg-gold transition-all rounded"&gt;YES, I AM 21+&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://google.com" class="px-8 py-3 border border-white/20 hover:bg-white/10 transition-all rounded"&gt;NO&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Navigation --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="fixed top-0 w-full z-50 glass"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-xl font-serif italic tracking-tighter"&gt;CHACE N VAPES&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-bold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#origin" class="hover:text-gold transition"&gt;The Origin&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#current" class="hover:text-gold transition"&gt;The Current&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#impact" class="hover:text-gold transition"&gt;The Impact&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="md:hidden"&gt;&lt;i data-lucide="menu"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Hero Section --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="h-screen flex items-center justify-center hero-gradient text-center px-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-4xl fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-xs uppercase tracking-[0.5em] text-white/60 mb-4 block"&gt;Wibaux • Montana • Origin Point&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-5xl md:text-8xl font-serif italic mb-6 leading-tight"&gt;Majesty &amp; Precision.&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg md:text-xl opacity-80 mb-10 max-w-2xl mx-auto font-light leading-relaxed"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>We don't chase clouds. We choose the visceral flow of the universe.<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>Rooted in the grit of the plains, refined by the mathematics of the star.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-col md:flex-row gap-4 justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#current" class="px-10 py-4 bg-white text-black font-bold uppercase tracking-widest hover:scale-105 transition-transform"&gt;Shop the Current&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#origin" class="px-10 py-4 border border-white/30 backdrop-blur-sm uppercase tracking-widest hover:bg-white/10 transition-all"&gt;Our Story&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-16 equation-box text-sm md:text-base"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>$A = \int_{p}^{o} (\nu \cdot \phi) \, dt = \infty$</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- The Origin (The Phase Shift Story) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="origin" class="py-24 px-6 bg-white text-black"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-sm uppercase tracking-widest text-black/50 mb-4"&gt;The Origin (o)&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-4xl md:text-5xl font-serif italic mb-6"&gt;From 12 Years of Silence to a Single Moment of Truth.&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg leading-relaxed mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>Christopher Bryce Van Houten didn't just build a shop; he calculated a return. After a 12-year phase shift through the fires of the past, the current led him back to the 406.<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg leading-relaxed opacity-70 italic"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"Synchronicity is a mathematical certainty. Chace N Vapes is the tangible proof of that flow."</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="aspect-[4/5] bg-neutral-200 border border-black/10 overflow-hidden group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                 </span>&lt;img src="https://images.unsplash.com/photo-1599385044453-6a9787e974e6?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Montana Sky" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- The Current (Shop/Products) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="current" class="py-24 px-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto text-center mb-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-sm uppercase tracking-widest opacity-50 mb-2"&gt;The Current (&amp;nu;)&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-serif italic mb-8"&gt;Hardware for the Human Capacity&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="h-px w-24 bg-white/20 mx-auto"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Product 1 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass p-8 rounded-lg hover:border-white/40 transition group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="aspect-square bg-white/5 mb-6 flex items-center justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i data-lucide="zap" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-xl font-bold mb-2"&gt;Smart Vapes 2026&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm opacity-60 mb-4"&gt;Precision dosing with mesh-coil resonance. Designed for the discerning seeker.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition"&gt;View Stock&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Product 2 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass p-8 rounded-lg hover:border-white/40 transition group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="aspect-square bg-white/5 mb-6 flex items-center justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i data-lucide="droplets" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-xl font-bold mb-2"&gt;The Flow Blends&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm opacity-60 mb-4"&gt;FDA-compliant, unflavored tobacco essences that respect the air of the plains.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition"&gt;View Stock&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Product 3 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass p-8 rounded-lg hover:border-white/40 transition group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="aspect-square bg-white/5 mb-6 flex items-center justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;i data-lucide="cpu" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-xl font-bold mb-2"&gt;Mod Customization&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm opacity-60 mb-4"&gt;We calibrate hardware for the infinite. Performance that scales with your growth.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition"&gt;View Stock&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Footer / The Impact --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer id="impact" class="py-16 px-6 border-t border-white/10 glass"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-start"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-2xl font-serif italic mb-4"&gt;Chace N Vapes&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm opacity-50 mb-6"&gt;Wibaux, Montana. &lt;br&gt;The junction of I-94 and Infinite Potential.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="hover:text-gold"&gt;&lt;i data-lucide="instagram"&gt;&lt;/i&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="hover:text-gold"&gt;&lt;i data-lucide="facebook"&gt;&lt;/i&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h5 class="font-bold mb-4 uppercase tracking-widest"&gt;Empire Reach&lt;/h5&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="space-y-2 opacity-60"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;Visceral Current&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;VanFlowCo&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;ScarlettSky Productions&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;Tension Treenets&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center md:text-right"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h5 class="font-bold mb-4 uppercase tracking-widest text-xs"&gt;Success Refinement&lt;/h5&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-xs opacity-40 leading-relaxed italic"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>$S = \lim_{t \to \infty} \sum_{n=1}^{\infty} \frac{P \cdot C}{\phi^n}$</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-[10px] mt-8 opacity-30"&gt;© 2026 Christopher Bryce Van Houten. Built for Scarlett Delaine.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Initialize Lucide Icons</p>
-<p class="p1"><span class="Apple-converted-space">        </span>lucide.createIcons();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Simple Age Gate Logic</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function closeGate() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('age-gate').style.display = 'none';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.body.style.overflow = 'auto';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Disable scroll while age gate is up</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.body.style.overflow = 'hidden';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="overflow-x-hidden">
+
+    <!-- Age Verification Overlay (Universal Logic) -->
+    <div id="age-gate" class="fixed inset-0 z-[100] flex items-center justify-center glass px-4">
+        <div class="max-w-md w-full p-8 text-center border border-white/20 bg-black/60 rounded-xl">
+            <h2 class="text-3xl font-serif italic mb-4">Are you of age?</h2>
+            <p class="text-sm opacity-70 mb-8">Accessing the Current requires maturity and self-respect. You must be 21+ to enter.</p>
+            <div class="flex gap-4 justify-center">
+                <button onclick="closeGate()" class="px-8 py-3 bg-white text-black font-bold hover:bg-gold transition-all rounded">YES, I AM 21+</button>
+                <a href="https://google.com" class="px-8 py-3 border border-white/20 hover:bg-white/10 transition-all rounded">NO</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-serif italic tracking-tighter">CHACE N VAPES</div>
+            <div class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-bold">
+                <a href="#origin" class="hover:text-gold transition">The Origin</a>
+                <a href="#current" class="hover:text-gold transition">The Current</a>
+                <a href="#impact" class="hover:text-gold transition">The Impact</a>
+            </div>
+            <button class="md:hidden"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center hero-gradient text-center px-6">
+        <div class="max-w-4xl fade-in">
+            <span class="text-xs uppercase tracking-[0.5em] text-white/60 mb-4 block">Wibaux • Montana • Origin Point</span>
+            <h1 class="text-5xl md:text-8xl font-serif italic mb-6 leading-tight">Majesty & Precision.</h1>
+            <p class="text-lg md:text-xl opacity-80 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                We don't chase clouds. We choose the visceral flow of the universe. 
+                Rooted in the grit of the plains, refined by the mathematics of the star.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#current" class="px-10 py-4 bg-white text-black font-bold uppercase tracking-widest hover:scale-105 transition-transform">Shop the Current</a>
+                <a href="#origin" class="px-10 py-4 border border-white/30 backdrop-blur-sm uppercase tracking-widest hover:bg-white/10 transition-all">Our Story</a>
+            </div>
+            <div class="mt-16 equation-box text-sm md:text-base">
+                $A = \int_{p}^{o} (\nu \cdot \phi) \, dt = \infty$
+            </div>
+        </div>
+    </section>
+
+    <!-- The Origin (The Phase Shift Story) -->
+    <section id="origin" class="py-24 px-6 bg-white text-black">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-sm uppercase tracking-widest text-black/50 mb-4">The Origin (o)</h2>
+                <h3 class="text-4xl md:text-5xl font-serif italic mb-6">From 12 Years of Silence to a Single Moment of Truth.</h3>
+                <p class="text-lg leading-relaxed mb-6">
+                    Christopher Bryce Van Houten didn't just build a shop; he calculated a return. After a 12-year phase shift through the fires of the past, the current led him back to the 406. 
+                </p>
+                <p class="text-lg leading-relaxed opacity-70 italic">
+                    "Synchronicity is a mathematical certainty. Chace N Vapes is the tangible proof of that flow."
+                </p>
+            </div>
+            <div class="aspect-[4/5] bg-neutral-200 border border-black/10 overflow-hidden group">
+                 <img src="https://images.unsplash.com/photo-1599385044453-6a9787e974e6?auto=format&fit=crop&q=80&w=1000" alt="Montana Sky" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Current (Shop/Products) -->
+    <section id="current" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-sm uppercase tracking-widest opacity-50 mb-2">The Current (&nu;)</h2>
+            <h3 class="text-4xl font-serif italic mb-8">Hardware for the Human Capacity</h3>
+            <div class="h-px w-24 bg-white/20 mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div class="glass p-8 rounded-lg hover:border-white/40 transition group">
+                <div class="aspect-square bg-white/5 mb-6 flex items-center justify-center">
+                    <i data-lucide="zap" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Smart Vapes 2026</h4>
+                <p class="text-sm opacity-60 mb-4">Precision dosing with mesh-coil resonance. Designed for the discerning seeker.</p>
+                <button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition">View Stock</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="glass p-8 rounded-lg hover:border-white/40 transition group">
+                <div class="aspect-square bg-white/5 mb-6 flex items-center justify-center">
+                    <i data-lucide="droplets" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2">The Flow Blends</h4>
+                <p class="text-sm opacity-60 mb-4">FDA-compliant, unflavored tobacco essences that respect the air of the plains.</p>
+                <button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition">View Stock</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="glass p-8 rounded-lg hover:border-white/40 transition group">
+                <div class="aspect-square bg-white/5 mb-6 flex items-center justify-center">
+                    <i data-lucide="cpu" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Mod Customization</h4>
+                <p class="text-sm opacity-60 mb-4">We calibrate hardware for the infinite. Performance that scales with your growth.</p>
+                <button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition">View Stock</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / The Impact -->
+    <footer id="impact" class="py-16 px-6 border-t border-white/10 glass">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-start">
+            <div>
+                <div class="text-2xl font-serif italic mb-4">Chace N Vapes</div>
+                <p class="text-sm opacity-50 mb-6">Wibaux, Montana. <br>The junction of I-94 and Infinite Potential.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-gold"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="hover:text-gold"><i data-lucide="facebook"></i></a>
+                </div>
+            </div>
+            <div class="text-sm">
+                <h5 class="font-bold mb-4 uppercase tracking-widest">Empire Reach</h5>
+                <ul class="space-y-2 opacity-60">
+                    <li>Visceral Current</li>
+                    <li>VanFlowCo</li>
+                    <li>ScarlettSky Productions</li>
+                    <li>Tension Treenets</li>
+                </ul>
+            </div>
+            <div class="text-center md:text-right">
+                <h5 class="font-bold mb-4 uppercase tracking-widest text-xs">Success Refinement</h5>
+                <div class="text-xs opacity-40 leading-relaxed italic">
+                    $S = \lim_{t \to \infty} \sum_{n=1}^{\infty} \frac{P \cdot C}{\phi^n}$
+                </div>
+                <p class="text-[10px] mt-8 opacity-30">© 2026 Christopher Bryce Van Houten. Built for Scarlett Delaine.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Simple Age Gate Logic
+        function closeGate() {
+            document.getElementById('age-gate').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Disable scroll while age gate is up
+        document.body.style.overflow = 'hidden';
+    </script>
 </body>
 </html>
