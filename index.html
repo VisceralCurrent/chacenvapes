@@ -1,201 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chace N Vapes | The Visceral Current</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Chace 'N' Vapes | Baker, MT Premium Smoke & Glass</title>
     <style>
         :root {
-            --mt-grit: #1a1a1a;
-            --mt-cloud: #f4f4f4;
-            --mt-gold: #c5a059;
+            --primary: #0f0f0f;
+            --accent: #d4af37; /* Gold for a premium, heritage feel */
+            --text: #ffffff;
+            --bg-overlay: rgba(0, 0, 0, 0.65);
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--mt-grit);
-            color: var(--mt-cloud);
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            scroll-behavior: smooth;
         }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .glass {
-            background: rgba(26, 26, 26, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 1)),
-                        url('https://images.unsplash.com/photo-1506543026363-22f6723b7294?auto=format&fit=crop&q=80&w=2000'); /* Placeholder for MT landscape */
-            background-size: cover;
+
+        /* Parallax Scenery Engine */
+        .scenery-layer {
+            height: 100vh;
+            background-attachment: fixed;
             background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
-        .equation-box {
-            font-family: serif;
-            letter-spacing: 0.1em;
-            opacity: 0.6;
-            transition: opacity 0.5s ease;
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-overlay);
+            z-index: 1;
         }
-        .equation-box:hover { opacity: 1; }
-        
-        /* Smooth Fade In */
-        .fade-in {
-            animation: fadeIn 1.5s ease-out;
+
+        .content {
+            z-index: 2;
+            padding: 20px;
+            max-width: 900px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 6px; margin-bottom: 10px; text-transform: uppercase; font-weight: 900; }
+        h2 { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+        p { font-size: 1.2rem; line-height: 1.8; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+        /* Scenery Transitions: Representing the Baker/Montana Landscape */
+        .hero { background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80'); } /* Badlands/Plains */
+        .glass { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80'); } /* High Peaks */
+        .vape { background-image: url('https://images.unsplash.com/photo-1493246507139-91e8bef99c02?auto=format&fit=crop&w=1920&q=80'); } /* Twilight Horizon */
+        .kratom { background-image: url('https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=1920&q=80'); } /* Forest Moss */
+
+        /* Product Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
-    </style>
-</head>
-<body class="overflow-x-hidden">
 
-    <!-- Age Verification Overlay (Universal Logic) -->
-    <div id="age-gate" class="fixed inset-0 z-[100] flex items-center justify-center glass px-4">
-        <div class="max-w-md w-full p-8 text-center border border-white/20 bg-black/60 rounded-xl">
-            <h2 class="text-3xl font-serif italic mb-4">Are you of age?</h2>
-            <p class="text-sm opacity-70 mb-8">Accessing the Current requires maturity and self-respect. You must be 21+ to enter.</p>
-            <div class="flex gap-4 justify-center">
-                <button onclick="closeGate()" class="px-8 py-3 bg-white text-black font-bold hover:bg-gold transition-all rounded">YES, I AM 21+</button>
-                <a href="https://google.com" class="px-8 py-3 border border-white/20 hover:bg-white/10 transition-all rounded">NO</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-serif italic tracking-tighter">CHACE N VAPES</div>
-            <div class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-bold">
-                <a href="#origin" class="hover:text-gold transition">The Origin</a>
-                <a href="#current" class="hover:text-gold transition">The Current</a>
-                <a href="#impact" class="hover:text-gold transition">The Impact</a>
-            </div>
-            <button class="md:hidden"><i data-lucide="menu"></i></button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="h-screen flex items-center justify-center hero-gradient text-center px-6">
-        <div class="max-w-4xl fade-in">
-            <span class="text-xs uppercase tracking-[0.5em] text-white/60 mb-4 block">Wibaux • Montana • Origin Point</span>
-            <h1 class="text-5xl md:text-8xl font-serif italic mb-6 leading-tight">Majesty & Precision.</h1>
-            <p class="text-lg md:text-xl opacity-80 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                We don't chase clouds. We choose the visceral flow of the universe. 
-                Rooted in the grit of the plains, refined by the mathematics of the star.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#current" class="px-10 py-4 bg-white text-black font-bold uppercase tracking-widest hover:scale-105 transition-transform">Shop the Current</a>
-                <a href="#origin" class="px-10 py-4 border border-white/30 backdrop-blur-sm uppercase tracking-widest hover:bg-white/10 transition-all">Our Story</a>
-            </div>
-            <div class="mt-16 equation-box text-sm md:text-base">
-                $A = \int_{p}^{o} (\nu \cdot \phi) \, dt = \infty$
-            </div>
-        </div>
-    </section>
-
-    <!-- The Origin (The Phase Shift Story) -->
-    <section id="origin" class="py-24 px-6 bg-white text-black">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-sm uppercase tracking-widest text-black/50 mb-4">The Origin (o)</h2>
-                <h3 class="text-4xl md:text-5xl font-serif italic mb-6">From 12 Years of Silence to a Single Moment of Truth.</h3>
-                <p class="text-lg leading-relaxed mb-6">
-                    Christopher Bryce Van Houten didn't just build a shop; he calculated a return. After a 12-year phase shift through the fires of the past, the current led him back to the 406. 
-                </p>
-                <p class="text-lg leading-relaxed opacity-70 italic">
-                    "Synchronicity is a mathematical certainty. Chace N Vapes is the tangible proof of that flow."
-                </p>
-            </div>
-            <div class="aspect-[4/5] bg-neutral-200 border border-black/10 overflow-hidden group">
-                 <img src="https://images.unsplash.com/photo-1599385044453-6a9787e974e6?auto=format&fit=crop&q=80&w=1000" alt="Montana Sky" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]">
-            </div>
-        </div>
-    </section>
-
-    <!-- The Current (Shop/Products) -->
-    <section id="current" class="py-24 px-6">
-        <div class="max-w-7xl mx-auto text-center mb-16">
-            <h2 class="text-sm uppercase tracking-widest opacity-50 mb-2">The Current (&nu;)</h2>
-            <h3 class="text-4xl font-serif italic mb-8">Hardware for the Human Capacity</h3>
-            <div class="h-px w-24 bg-white/20 mx-auto"></div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Product 1 -->
-            <div class="glass p-8 rounded-lg hover:border-white/40 transition group">
-                <div class="aspect-square bg-white/5 mb-6 flex items-center justify-center">
-                    <i data-lucide="zap" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-2">Smart Vapes 2026</h4>
-                <p class="text-sm opacity-60 mb-4">Precision dosing with mesh-coil resonance. Designed for the discerning seeker.</p>
-                <button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition">View Stock</button>
-            </div>
-            <!-- Product 2 -->
-            <div class="glass p-8 rounded-lg hover:border-white/40 transition group">
-                <div class="aspect-square bg-white/5 mb-6 flex items-center justify-center">
-                    <i data-lucide="droplets" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-2">The Flow Blends</h4>
-                <p class="text-sm opacity-60 mb-4">FDA-compliant, unflavored tobacco essences that respect the air of the plains.</p>
-                <button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition">View Stock</button>
-            </div>
-            <!-- Product 3 -->
-            <div class="glass p-8 rounded-lg hover:border-white/40 transition group">
-                <div class="aspect-square bg-white/5 mb-6 flex items-center justify-center">
-                    <i data-lucide="cpu" class="w-12 h-12 opacity-20 group-hover:opacity-100 transition"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-2">Mod Customization</h4>
-                <p class="text-sm opacity-60 mb-4">We calibrate hardware for the infinite. Performance that scales with your growth.</p>
-                <button class="w-full py-3 border border-white/20 hover:bg-white text-xs font-bold uppercase tracking-widest hover:text-black transition">View Stock</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / The Impact -->
-    <footer id="impact" class="py-16 px-6 border-t border-white/10 glass">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-start">
-            <div>
-                <div class="text-2xl font-serif italic mb-4">Chace N Vapes</div>
-                <p class="text-sm opacity-50 mb-6">Wibaux, Montana. <br>The junction of I-94 and Infinite Potential.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="hover:text-gold"><i data-lucide="instagram"></i></a>
-                    <a href="#" class="hover:text-gold"><i data-lucide="facebook"></i></a>
-                </div>
-            </div>
-            <div class="text-sm">
-                <h5 class="font-bold mb-4 uppercase tracking-widest">Empire Reach</h5>
-                <ul class="space-y-2 opacity-60">
-                    <li>Visceral Current</li>
-                    <li>VanFlowCo</li>
-                    <li>ScarlettSky Productions</li>
-                    <li>Tension Treenets</li>
-                </ul>
-            </div>
-            <div class="text-center md:text-right">
-                <h5 class="font-bold mb-4 uppercase tracking-widest text-xs">Success Refinement</h5>
-                <div class="text-xs opacity-40 leading-relaxed italic">
-                    $S = \lim_{t \to \infty} \sum_{n=1}^{\infty} \frac{P \cdot C}{\phi^n}$
-                </div>
-                <p class="text-[10px] mt-8 opacity-30">© 2026 Christopher Bryce Van Houten. Built for Scarlett Delaine.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Simple Age Gate Logic
-        function closeGate() {
-            document.getElementById('age-gate').style.display = 'none';
-            document.body.style.overflow = 'auto';
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border 0.3s ease;
         }
-        
-        // Disable scroll while age gate is up
-        document.body.style.overflow = 'hidden';
-    </script>
-</body>
-</html>
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid var(--accent);
+        }
+
+        .product-card h3 { color: var(--accent); text-transform: uppercase
